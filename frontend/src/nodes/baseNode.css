@@ -1,0 +1,48 @@
+/* baseNode.css
+   Minimal shared styling so every node looks consistent by default.
+   Part 2 of the assessment is dedicated to real styling - this is just
+   enough to make nodes legible while building the abstraction. */
+
+   .base-node {
+    border: 1px solid #d0d3d9;
+    border-radius: 8px;
+    background: #ffffff;
+    font-family: sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+  
+  .base-node__header {
+    padding: 6px 10px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .base-node__body {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .base-node__field {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 11px;
+  }
+  
+  .base-node__field input,
+  .base-node__field select,
+  .base-node__field textarea {
+    font-size: 12px;
+    padding: 3px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  
+  .base-node__description {
+    font-size: 11px;
+    color: #555;
+  }

@@ -1,0 +1,35 @@
+// BaseNode owns "how a node looks": the outer container, the header bar,
+// and Handle rendering. It knows nothing about what a specific node
+// contains - that's left entirely to whatever is passed as children. 
+
+import { Handle } from 'reactflow';
+import './baseNode.css';
+
+export const BaseNode = ({
+  title,
+  handles = [],
+  children,
+  width = 220,
+  minHeight,
+  className = '',
+}) => {
+  return (
+    <div className={`base-node ${className}`} style={{ width, minHeight }}>
+      {handles.map((handle) => (
+        <Handle
+          key={handle.id}
+          type={handle.type}
+          position={handle.position}
+          id={handle.id}
+          style={handle.style}
+        />
+      ))}
+
+      <div className="base-node__header">
+        <span>{title}</span>
+      </div>
+
+      <div className="base-node__body">{children}</div>
+    </div>
+  );
+};
