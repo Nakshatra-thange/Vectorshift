@@ -1,0 +1,29 @@
+.pipeline-canvas {
+    flex: 1;
+    min-height: 0;
+    background: var(--bg, #f4f3ee);
+  }
+  
+  .react-flow__controls {
+    border: 1px solid var(--ink, #111110);
+    border-radius: var(--radius-sm, 2px);
+    box-shadow: none;
+    overflow: hidden;
+  }
+  
+  .react-flow__controls-button {
+    background: var(--surface, #ffffff);
+    border-bottom: 1px solid var(--line, #d8d6cd);
+    color: var(--ink, #111110);
+  }
+  
+  .react-flow__controls-button:hover {
+    background: var(--bg, #f4f3ee);
+  }
+  
+  .react-flow__minimap {
+    border: 1px solid var(--ink, #111110);
+    border-radius: var(--radius-sm, 2px);
+    background: var(--surface, #ffffff);
+  }
+  

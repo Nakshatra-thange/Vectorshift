@@ -1,0 +1,10 @@
+.submit-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4, 20px);
+    border-top: 1px solid var(--ink, #111110);
+    background: var(--bg, #f4f3ee);
+    flex-shrink: 0;
+  }
+  

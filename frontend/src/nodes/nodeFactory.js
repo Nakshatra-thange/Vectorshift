@@ -1,8 +1,5 @@
-
 // createNode(config) turns a config object - "what a node contains" - into
-// a working React Flow component - "what gets rendered". This is the layer
-// that lets new nodes be pure data: a title, some handles, and a list of
-// fields, each pointing at a `kind` that fieldRenderers knows how to draw.
+// a working React Flow component - "what gets rendered".
 
 
 import { useState, useCallback } from 'react';

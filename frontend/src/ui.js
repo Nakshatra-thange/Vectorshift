@@ -6,21 +6,13 @@ import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
+import { nodeTypes } from './nodes/nodeTypes';
 
 import 'reactflow/dist/style.css';
+import './ui.css';
 
-const gridSize = 20;
+const gridSize = 16;
 const proOptions = { hideAttribution: true };
-const nodeTypes = {
-  customInput: InputNode,
-  llm: LLMNode,
-  customOutput: OutputNode,
-  text: TextNode,
-};
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -53,17 +45,16 @@ export const PipelineUI = () => {
     const onDrop = useCallback(
         (event) => {
           event.preventDefault();
-    
+
           const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
           if (event?.dataTransfer?.getData('application/reactflow')) {
             const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
             const type = appData?.nodeType;
-      
-            // check if the dropped element is valid
+
             if (typeof type === 'undefined' || !type) {
               return;
             }
-      
+
             const position = reactFlowInstance.project({
               x: event.clientX - reactFlowBounds.left,
               y: event.clientY - reactFlowBounds.top,
@@ -76,11 +67,11 @@ export const PipelineUI = () => {
               position,
               data: getInitNodeData(nodeID, type),
             };
-      
+
             addNode(newNode);
           }
         },
-        [reactFlowInstance]
+        [reactFlowInstance, getNodeID, addNode]
     );
 
     const onDragOver = useCallback((event) => {
@@ -89,8 +80,7 @@ export const PipelineUI = () => {
     }, []);
 
     return (
-        <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="pipeline-canvas">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -105,11 +95,10 @@ export const PipelineUI = () => {
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
             >
-                <Background color="#aaa" gap={gridSize} />
+                <Background variant="dots" color="var(--dot)" gap={gridSize} size={1} />
                 <Controls />
                 <MiniMap />
             </ReactFlow>
         </div>
-        </>
     )
 }

@@ -1,0 +1,29 @@
+.draggable-node {
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid var(--ink, #111110);
+    border-radius: var(--radius-sm, 2px);
+    background: var(--surface, #ffffff);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink, #111110);
+    transition: box-shadow 0.12s ease, transform 0.12s ease;
+  }
+  
+  .draggable-node:hover {
+    box-shadow: 2px 2px 0 var(--ink, #111110);
+    transform: translate(-1px, -1px);
+  }
+  
+  .draggable-node__led {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ink, #111110);
+    flex-shrink: 0;
+  }
+  

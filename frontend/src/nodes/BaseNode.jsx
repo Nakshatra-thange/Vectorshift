@@ -2,6 +2,7 @@
 // and Handle rendering. It knows nothing about what a specific node
 // contains - that's left entirely to whatever is passed as children. 
 
+
 import { Handle } from 'reactflow';
 import './baseNode.css';
 
@@ -26,6 +27,7 @@ export const BaseNode = ({
       ))}
 
       <div className="base-node__header">
+        <span className="base-node__led" />
         <span>{title}</span>
       </div>
 
