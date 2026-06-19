@@ -1,0 +1,20 @@
+.text-node__textarea {
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1.4;
+  }
+  
+.text-node__mirror {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    font-family: var(--font-mono, monospace);
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 4px 6px;
+    border: 1px solid transparent;
+  }

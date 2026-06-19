@@ -31,6 +31,7 @@
   }
   
   .base-node__body {
+    position:relative;
     padding: 10px;
     display: flex;
     flex-direction: column;
