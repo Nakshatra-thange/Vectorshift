@@ -31,10 +31,6 @@ class Pipeline(BaseModel):
 
 
 def is_dag(nodes: List[Node], edges: List[Edge]) -> bool:
-    """Kahn's algorithm: repeatedly remove nodes with no incoming edges.
-    If every node gets removed, there was no cycle. If some are left
-    stranded (their in-degree never reaches 0), those nodes are part of
-    a cycle."""
     node_ids = {n.id for n in nodes}
     adjacency = {node_id: [] for node_id in node_ids}
     in_degree = {node_id: 0 for node_id in node_ids}

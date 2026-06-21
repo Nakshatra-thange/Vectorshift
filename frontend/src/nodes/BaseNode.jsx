@@ -1,7 +1,3 @@
-// BaseNode owns "how a node looks": the outer container, the header bar,
-// and Handle rendering. It knows nothing about what a specific node
-// contains - that's left entirely to whatever is passed as children. 
-
 
 import { Handle } from 'reactflow';
 import './baseNode.css';
